@@ -1,28 +1,28 @@
 {
-    "name": "Bas' Page",
-    "short_name": "Bas' Name",
+    "name": "Bas' App",
+    "short_name": "Bas' App",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#fff",
-    "description": "Bas' Page Description.",
+    "description": "Bas' App Description.",
     "icons": [
+		{
+			"src": "mansion-64.png",
+			"sizes": "64x64",
+			"type": "image/png"
+		},
+		{
+			"src": "mansion-128.png",
+			"sizes": "128x128",
+			"type": "image/png"
+		},
         {
-            "src": "images/touch/mansion-64.png",
-            "sizes": "64x64",
-            "type": "image/png"
-        },
-        {
-            "src": "images/touch/mansion-128.png",
-            "sizes": "128x128",
-            "type": "image/png"
-        },
-        {
-            "src": "images/touch/mansion-256.png",
+            "src": "mansion-256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "images/touch/mansion-512.png",
+            "src": "mansion-512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
