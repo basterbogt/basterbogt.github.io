@@ -1,0 +1,182 @@
+@import "@material/textfield/mdc-text-field";
+@import "@material/button/mdc-button";
+@import "@material/top-app-bar/mdc-top-app-bar";
+
+.foo-button {
+  @include mdc-button-ink-color(teal);
+  @include mdc-states(teal);
+}
+
+html,
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+body {
+  color: black;
+}
+body *{
+  font-family: "Great Vibes", cursive;
+}
+
+#container{
+  // height:100%;
+  min-height:100%;
+  position:relative;
+}
+
+#page{
+  padding-top: 65px !important;
+  padding:10px;
+  padding-bottom:30px;   /* Height of the footer */
+}
+
+#textInputDiv{
+  padding: 10px;
+  border: 0px solid white;
+}
+
+#textAreaDiv{
+  width: auto;
+  margin: 4px 10px 5px 10px;
+  border: 0px solid white;
+}
+
+textarea {
+  resize: none;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+#title{
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.12) !important;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Great Vibes", cursive;
+}
+
+#content{
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  font-family: "Great Vibes", cursive;
+}
+
+#button{
+  margin: 10px;
+  float:right;
+  border: 1px solid #6200ee;
+  border-radius: 5px;
+  font-family: "Great Vibes", cursive;
+}
+
+#main{
+  padding: 10px;
+  display: flex;          
+  flex-flow: row wrap;  
+  clear: both;  
+  margin-bottom: 10px;
+}
+
+section#newNote{
+  display:none;
+}
+
+.note{
+  position: relative;
+  background: #f4f4f4;
+  color: #471096;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid #c3c3c3;
+
+  padding: 5px 0px 5px 0px !important;
+  margin: 0px 0px 15px 0px !important;
+  
+  height: auto !important;
+  align-items: start !important;
+}
+
+.noteLine{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.noteTitle{
+  color: #d54d7b;
+  font-family: "Great Vibes", cursive;
+  font-size: 20px;
+  font-weight: normal;
+  text-shadow: 0 1px 1px #fff;
+  margin: 5px;
+}
+
+.noteDeleteButton{
+  vertical-align: middle;
+  color: red !important;
+  width: 20px;
+  margin: 7px;
+  padding-right: 3px;
+  height: 100%;
+  vertical-align: middle;
+  display:none;
+}
+
+.active .noteDeleteButton{
+  display:block;
+}
+
+.noteContent{
+  margin: 5px 10px;
+  text-align: justify;
+  font-family: "Great Vibes", cursive;
+}
+
+.noteTimestampDiv{
+  text-align: right;
+  color: lightgray;
+  font-family: "Great Vibes", cursive;
+  width: 100%;
+}
+.noteTimestamp{
+  margin-right:10px
+}
+
+.mdc-top-app-bar__title, .mdc-list-item{
+  font-family: "Great Vibes", cursive !important;
+}
+
+
+/* Footer */
+
+footer {
+  background-color: #6200ee;
+  color: white;
+  font-weight: bold;
+  font-size: small;
+  text-align: right;
+  padding: 20px 0 0 0;
+  margin: 5px 0 0 0;
+  float: none;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height:30px;   /* Height of the footer */
+}
+
+#author {
+  padding: 0 0 0 1em;
+}
+
+#copyrightyear {
+  padding-right: 10px;
+}

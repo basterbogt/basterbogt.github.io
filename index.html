@@ -5,57 +5,107 @@
 <head>
     <!-- Icons used on this website are  made by [freepik] from www.flaticon.com -->
 
+    <title>Notes</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
     <link rel="manifest" href="manifest/manifest.json">
-    <link rel="stylesheet" href="css/reset.css"> 
 
-    <!-- <link rel="shortcut icon" href="/material-components-web-catalog/static/media/mdc_web_48dp.png"> -->
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="bundle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,400,500">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,600,700">
-    <title>Bas' Page</title>
     <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
 </head>
 
+<template id="noteTemplate">
+    <li class="note mdc-list-item">
+        <div class="noteLine">
+            <div class="noteTitle"></div>
+            <input class="noteDeleteButton" type="image" src="/images/delete.png" />
+        </div>
+        <div class="noteContent"></div>
+        <div class="noteTimestampDiv">
+            <label class="noteTimestamp"></label>
+        </div>
+    </li>
+</template>
 
-<body class="mdc-typography">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-
-    <aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
-        <nav class="mdc-drawer__drawer">
-            <header class="mdc-drawer__header">
-                <div class="mdc-drawer__header-content">
-                    Menu
-                </div>
-            </header>
-            <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#">
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox
-                </a>
-                <a class="mdc-list-item" href="#">
-                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star
-                </a>
-            </nav>
+<!-- <aside class="mdc-drawer mdc-drawer--temporary mdc-typography">
+    <nav class="mdc-drawer__drawer">
+        <header class="mdc-drawer__header">
+            <div class="mdc-drawer__header-content">
+                Menu
+            </div>
+        </header>
+        <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>All Notes
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Favorites
+            </a>
         </nav>
-    </aside>
-    <div>
+    </nav>
+</aside> -->
+
+<body>
+    <div id="container">
         <header class="mdc-top-app-bar">
             <div class="mdc-top-app-bar__row">
                 <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                    <button class="menu material-icons mdc-top-app-bar__navigation-icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded"
-                        style="--mdc-ripple-fg-size:28.8px; --mdc-ripple-fg-scale:1.66667; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">menu</button>
-                    <span class="mdc-top-app-bar__title">Bas' App</span>
+                    <!-- <button class="menu material-icons mdc-top-app-bar__navigation-icon mdc-ripple-upgraded--unbounded mdc-ripple-upgraded" style="--mdc-ripple-fg-size:28.8px; --mdc-ripple-fg-scale:1.66667; --mdc-ripple-left:10px; --mdc-ripple-top:10px;">menu</button> -->
+                    <span class="mdc-top-app-bar__title">Notes</span>
+                    <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                        <a id="undoButton" href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Undo" alt="Undo">undo</a>
+                        <a id="newNoteButton" href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="New note" alt="New note">bookmark</a>
+                    </section>
                 </section>
             </div>
         </header>
-        Toolbar and page content go inside here.
+        <div id="page">
+            <section id="newNote">
+                <div id="textInputDiv" class="mdc-text-field mdc-text-field--fullwidth">
+                    <input id="title" class="mdc-text-field__input" type="text" placeholder="Title" aria-label="Full-Width Text Field">
+                </div>
+                <div id="textAreaDiv" class="mdc-text-field mdc-text-field--textarea">
+                    <textarea id="content" id="textarea" placeholder="Content" class="mdc-text-field__input" rows="4" cols="40"></textarea>
+                </div>
+                <button id="button" class="foo-button mdc-button">
+                    Save
+                </button>
+            </section>
+
+            <ul id="main" class="mdc-list" aria-orientation="vertical">
+            </ul>
+        </div>
+
+        <footer>
+            <span id="author">Bas</span>
+            <span>&nbsp;&copy;&nbsp;</span>
+            <span id="copyrightyear">year</span>
+        </footer>
     </div>
 
-    <script type="text/javascript" src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script type="text/javascript" src="scripts/material-components-web.js"></script>
+    <script type="text/javascript" src="scripts/appbar.js"></script>
+    <script type="text/javascript" src="scripts/timeFormat.js"></script>
     <script type="text/javascript" src="scripts/drawer.js"></script>
+    <script type="text/javascript" src="scripts/footer.js"></script>
+    <script src="bundle.js" async></script>
+    <script type="text/javascript" src="scripts/storage.js"></script>
+    <script>
+        setFooterDate();
+    </script>
 </body>
-
 </html>
